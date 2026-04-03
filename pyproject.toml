@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "r2y"
+version = "0.1.0"
+description = "Python reimplementation of Response-2000 for sectional analysis of reinforced concrete"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+full = ["numpy", "pydantic>=2.0", "typer"]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+include = ["r2y*"]
