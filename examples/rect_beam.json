@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "schema_version": "0.1.0",
+    "program": "r2y",
+    "units": "SI",
+    "description": "Simple rectangular beam — 300x600mm, f'c=35MPa, 3-25M bottom bars"
+  },
+  "materials": {
+    "concrete": [
+      {
+        "id": "concrete_1",
+        "fc_prime": 35.0,
+        "aggregate_size": 19.0,
+        "tension_stiffening_factor": 1.0,
+        "base_curve": "popovics",
+        "compression_softening": "vecchio_collins_1986",
+        "tension_stiffening": "bentz_2000"
+      }
+    ],
+    "steel": [
+      {
+        "id": "rebar_1",
+        "fy": 400.0,
+        "E": 200000.0,
+        "epsilon_sh": 7.0,
+        "epsilon_u": 100.0
+      }
+    ]
+  },
+  "section": {
+    "geometry": {
+      "strips": [
+        {
+          "y_top": 0.0,
+          "height": 600.0,
+          "width": 300.0,
+          "concrete_id": "concrete_1"
+        }
+      ]
+    },
+    "reinforcement": [
+      {
+        "y": 550.0,
+        "area": 1500.0,
+        "steel_id": "rebar_1",
+        "count": 3,
+        "bar_diameter": 25.2
+      }
+    ],
+    "stirrups": {
+      "area_per_spacing": 1.0,
+      "steel_id": "rebar_1",
+      "spacing": 200.0,
+      "leg_area": 100.0
+    }
+  },
+  "loading": {
+    "axial_load": 0.0,
+    "load_type": "full_response",
+    "moment_to_shear_ratio": 2.5,
+    "num_increments": 100
+  }
+}
